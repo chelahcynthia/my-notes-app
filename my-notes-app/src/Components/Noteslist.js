@@ -1,7 +1,7 @@
 import Note from "./Note";
 import AddNote from "./AddNote";
 
-const NotesList = ({notes}) => {
+const NotesList = ({notes, handleAddNote}) => {
 
     return (
         <div className="notes_list">
@@ -11,7 +11,7 @@ const NotesList = ({notes}) => {
             date={note.date}
             />
             ))}
-            <AddNote />
+            <AddNote handleAddNote={handleAddNote}/>
             </div>
     )
 };
