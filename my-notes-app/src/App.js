@@ -31,7 +31,8 @@ const addNote = (text) => {
     date: date.toDateString()
 
    }
-   
+   const newNotes = [...notes, newNote];
+   setNotes(newNotes);
 };
 
 
