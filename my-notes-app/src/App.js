@@ -25,6 +25,8 @@ const App = () => {
     date: "22/11/2022"
   },
 ]);
+
+const [searchText, setSearchText] = useState('');
 const addNote = (text) => {
    const date = new Date();
    const newNote = {
@@ -44,7 +46,7 @@ const deleteNote = (id) => {
 
   return (
     <div className="container">
-      <Search />
+      <Search handleSearchNote={setSearchText}/>
       <NotesList 
       notes={notes} 
       handleAddNote={addNote}
