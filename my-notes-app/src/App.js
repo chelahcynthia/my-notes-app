@@ -1,42 +1,43 @@
-import {useState}  from 'react';
-import { nanoid} from 'nanoid';
+import {useEffect, useState}  from 'react';
+
 import NotesList from "./Components/Noteslist";
 import React from "react";
 import Search from './Components/Search';
 
 
 const App = () => {
-  const [notes, setNotes] = useState([
-    {
-    id: nanoid(),
-    text: "This is my first note!",
-    date: "20/11/2022"
-  },
+  const [notes, setNotes] = useState([]);
 
-  {
-    id: nanoid(),
-    text: "This is my second note!",
-    date: "21/11/2022"
-  },
+useEffect(() => {
+  fetch("https://my-notes-server-app.herokuapp.com/notes")
+.then((response) => response.json())
+.then((data) => {
+  setNotes(data)
 
-  {
-    id: nanoid(),
-    text: "This is my third note!",
-    date: "22/11/2022"
-  },
-]);
+
+})
+
+},[])
 
 const [searchText, setSearchText] = useState('');
 const addNote = (text) => {
    const date = new Date();
    const newNote = {
-    id: nanoid(),
+    
     text: text,
     date: date.toDateString()
 
    }
-   const newNotes = [...notes, newNote];
-   setNotes(newNotes);
+   fetch("https://my-notes-server-app.herokuapp.com/notes",{
+    method: "POST",
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(newNote)
+   })
+   .then((res) => console.log(res))
+setNotes([...notes, newNote])
 };
 const deleteNote = (id) => {
  const newNotes= notes.filter((note) => note.id !== id);
