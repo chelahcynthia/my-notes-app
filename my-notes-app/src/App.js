@@ -51,6 +51,7 @@ const App = () => {
 
   return (
     // div to edit the toggledarkmode 
+    // if darkmode === tree then add add dark-mode (below statement)
     <div className={`${darkMode && 'dark-mode' }`}>
        <div className="container">
       <Header  handleToggleDarkMode={setDarkMode}/>
