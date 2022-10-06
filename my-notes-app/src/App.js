@@ -42,16 +42,14 @@ const App = () => {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
   };
-  const searchNotes = (text) => {
-    const newNotes = notes.filter((note) => note.text !== text);
-
-  }
+  
 
   return (
     <div className="container">
       <Search handleSearchNote={searchText} />
       <NotesList
-        notes={notes}
+        notes={notes.filter((note) => note.text.toLowerCase().includes(searchText)
+          )}
         handleAddNote={addNote}
         handleDeleteNote={deleteNote}
       />
