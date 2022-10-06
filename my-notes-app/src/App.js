@@ -50,7 +50,8 @@ const App = () => {
   
 
   return (
-    <div className={''}>
+    // div to edit the toggledarkmode 
+    <div className={`${darkMode && 'dark-mode' }`}>
        <div className="container">
       <Header  handleToggleDarkMode={setDarkMode}/>
       <Search handleSearchNote={setSearchText} />
