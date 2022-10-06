@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import NotesList from "./Components/Noteslist";
 import React from "react";
 import Search from "./Components/Search";
+import Header from "./Components/Header";
 
 const App = () => {
   const [notes, setNotes] = useState([]);
@@ -46,6 +47,7 @@ const App = () => {
 
   return (
     <div className="container">
+      <Header />
       <Search handleSearchNote={searchText} />
       <NotesList
         notes={notes.filter((note) => note.text.toLowerCase().includes(searchText)
