@@ -49,7 +49,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <Search handleSearchNote={searchNotes} />
+      <Search handleSearchNote={searchText} />
       <NotesList
         notes={notes}
         handleAddNote={addNote}
