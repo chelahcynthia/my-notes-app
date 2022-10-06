@@ -27,9 +27,8 @@ const App = () => {
   };
 
   const [searchText, setSearchText] = useState("");
-  
-  const [darkMode, setDarkMode] = useState(false); 
 
+  const [darkMode, setDarkMode] = useState(false);
 
   const addNote = (text) => {
     const date = new Date();
@@ -42,29 +41,28 @@ const App = () => {
   };
   const deleteNote = (id) => {
     fetch(`https://my-notes-server-app.herokuapp.com/notes/${id}`, {
-    method: "DELETE"
-  })
+      method: "DELETE",
+    });
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
   };
-  
 
   return (
-    // div to edit the toggledarkmode 
+    // div to edit the toggledarkmode
     // if darkmode === tree then add add dark-mode (below statement)
-    <div className={`${darkMode && 'dark-mode' }`}>
-       <div className="container">
-      <Header  handleToggleDarkMode={setDarkMode}/>
-      <Search handleSearchNote={setSearchText} />
-      <NotesList
-        notes={notes.filter((note) => note.text.toLowerCase().includes(searchText)
+    <div className={`${darkMode && "dark-mode"}`}>
+      <div className="container">
+        <Header handleToggleDarkMode={setDarkMode} />
+        <Search handleSearchNote={setSearchText} />
+        <NotesList
+          notes={notes.filter((note) =>
+            note.text.toLowerCase().includes(searchText)
           )}
-        handleAddNote={addNote}
-        handleDeleteNote={deleteNote}
-      />
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote}
+        />
+      </div>
     </div>
-    </div>
-   
   );
 };
 
