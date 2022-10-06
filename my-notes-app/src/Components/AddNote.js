@@ -16,7 +16,7 @@ const characterLimit = 200;
       handleAddNote(noteText);
       setNoteText("");
     }
-    handleAddNote(noteText);
+    
   };
   return (
     <div className="note_new">
