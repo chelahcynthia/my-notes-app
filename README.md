@@ -2,7 +2,7 @@
 By: Cynthia Chelangat
 ## Description 
 This app allows users to write notes wherever they are and they can delete it at any time. The user can also search for a specific note.How cool! less stress, more notes!
-Also, one can switch to dark mode or bright mode according to their preference.The dates are upto date too!
+Also, one can switch to dark mode or bright mode according to their preference.The dates are updated too so you won't have to stress about the date the notes were created. 
 
 This project was bootstrapped with Create React App.
 
