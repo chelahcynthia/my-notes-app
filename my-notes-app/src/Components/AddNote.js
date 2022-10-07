@@ -14,7 +14,8 @@ const AddNote = ({ handleAddNote }) => {
       handleAddNote(noteText);
       setNoteText("");
     }
-  };
+  }
+  
   return (
     <div className="note_new">
       <textarea

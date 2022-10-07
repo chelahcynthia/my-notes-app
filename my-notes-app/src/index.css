@@ -49,7 +49,7 @@ textarea:focus {
   outline: none;
 }
 
-.save {
+.save, a {
   background-color: gray;
   border: none;
   border-radius: 15px;
@@ -71,7 +71,6 @@ textarea:focus {
 }
 .note_footer {
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 .delete-icon {
@@ -91,4 +90,23 @@ textarea:focus {
 }
 .search input:focus {
   outline: none;
+}
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.home img{
+ max-width: 600px;
+
+ 
+}
+.home{
+  display: flex;
+ 
+  justify-content: center;
 }

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-
-import NotesList from "./Components/Noteslist";
 import React from "react";
-import Search from "./Components/Search";
+import { Routes, Route } from 'react-router-dom';
+import NotesList from "./Components/Noteslist";
 import Header from "./Components/Header";
+import Home from "./Home";
+import NavBar from "./NavBar";
+import AddNote from "./Components/AddNote";
 
 const App = () => {
   const [notes, setNotes] = useState([]);
@@ -15,6 +17,7 @@ const App = () => {
         setNotes(data);
       });
   }, []);
+
   const fetchPost = (newNote) => {
     fetch("https://my-notes-server-app.herokuapp.com/notes", {
       method: "POST",
@@ -50,17 +53,26 @@ const App = () => {
   return (
     // div to edit the toggledarkmode
     // if darkmode === tree then add add dark-mode (below statement)
+
     <div className={`${darkMode && "dark-mode"}`}>
       <div className="container">
+        <NavBar />
         <Header handleToggleDarkMode={setDarkMode} />
-        <Search handleSearchNote={setSearchText} />
-        <NotesList
-          notes={notes.filter((note) =>
-            note.text.toLowerCase().includes(searchText)
-          )}
-          handleAddNote={addNote}
-          handleDeleteNote={deleteNote}
-        />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/addnote" element={<AddNote handleAddNote={addNote}/> }/>
+          <Route 
+            path="/noteslist" 
+            element={
+            <NotesList 
+              notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))}
+              note={notes.map(note => note)} 
+              handleDeleteNote={deleteNote}
+              handleSearchNote={setSearchText}
+          />
+            } 
+          />
+        </Routes>
       </div>
     </div>
   );
