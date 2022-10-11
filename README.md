@@ -19,6 +19,7 @@ Api URL(https://my-notes-server-app.herokuapp.com/notes)
 2. OPen the project in your text editor
 3. Open your terminal or cmd and type 
  npm install then npm start and make sure to cd into my-notes-app before running npm run to open your browser.
+ Make sure to npm install react-router-dom before npm start. 
 
  ## License
 
